@@ -19,7 +19,7 @@ fieldset {
   margin: 0;
 }
 
-/* Remove unexpacted flex behaviour */
+/* Remove unexpected flex behavior */
 * {
   flex-shrink: 0;
 }
@@ -73,4 +73,13 @@ button:not(:disabled) {
 
 img {
   display: block;
+}
+
+/* Avoid animations */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+    animation: none;
+  }
 }

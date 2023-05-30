@@ -1,0 +1,19 @@
+:root {
+  --accent: oklch(63.78% 0.131 255.51);
+
+  /* text */
+  --text-primary: oklch(0% 0 0);
+  --text-secondary: oklch(54% 0 0);
+  --text-note: oklch(85% 0 0);
+  --text-badge: oklch(100% 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: oklch(63.78% 0.131 255.51);
+
+    /* text */
+    --text-primary: oklch(100% 0 0);
+    --text-note: oklch(45% 0 0);
+  }
+}

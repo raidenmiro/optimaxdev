@@ -1,0 +1,15 @@
+{
+  "extends": "@logux/stylelint-config",
+  "plugins": ["stylelint-plugin-logical-css"],
+  "ignoreFiles": ["dist/**/*"],
+  "rules": {
+    "function-disallowed-list": ["rgb", "rgba", "hsl", "hsla"],
+    "alpha-value-notation": "percentage",
+    "color-named": "never",
+    "plugin/use-logical-properties-and-values": [
+      true,
+      { "severity": "warning" }
+    ],
+    "plugin/use-logical-units": [true, { "severity": "warning" }]
+  }
+}

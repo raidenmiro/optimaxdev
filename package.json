@@ -14,7 +14,7 @@
     "commit": "cz",
     "lint": "tsc --noEmit && eslint ./src && stylelint ./src/**/*.css",
     "format": "prettier ./src/**/*.{ts,tsx,css} --write",
-    "sprite": "sprite --root assets -o public/sprite -d src/view/icon/sprite.h.ts",
+    "sprite": "sprite --root assets -o public/sprite -d src/shared/view/icon/sprite.h.ts",
     "colors": "npx convert-to-oklch ./src/**/*.css",
     "preview": "vite preview"
   },

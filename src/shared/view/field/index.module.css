@@ -15,9 +15,10 @@
   }
 
   &:has(input[aria-invalid]) {
+    border-color: var(--failure);
+
     & > input {
       color: var(--failure);
-      border-color: var(--accent);
     }
   }
 }

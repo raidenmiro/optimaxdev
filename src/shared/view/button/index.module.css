@@ -1,0 +1,18 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  block-size: calc(var(--unit-x1) * 13);
+  inline-size: calc(var(--unit-x10) * 7);
+  color: var(--text-badge);
+  background: var(--accent);
+  border: none;
+  border-radius: 9px;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .2s;
+  transition-property: transform;
+
+  &:active {
+    transform: scale(.95);
+  }
+}

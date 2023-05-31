@@ -10,6 +10,8 @@
   "scripts": {
     "prepare": "lefthook install",
     "dev": "vite",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
     "build": "tsc && vite build",
     "commit": "cz",
     "lint": "tsc --noEmit && eslint ./src && stylelint ./src/**/*.css",
@@ -30,6 +32,7 @@
     "@logux/stylelint-config": "^0.15.1",
     "@neodx/svg": "^0.2.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",

@@ -42,8 +42,3 @@ jobs:
           channelId: live
       - name: Clean build directory
         run: rm -Rf ./dist/
-
-    
-
-
-      

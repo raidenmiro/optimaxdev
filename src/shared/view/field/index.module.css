@@ -1,0 +1,40 @@
+.field {
+  position: relative;
+  box-sizing: border-box;
+  block-size: var(--unit-x7);
+  display: flex;
+  padding: 1px;
+  overflow: hidden;
+  background: var(--bg-base-accent);
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+
+  &:has(input:focus-visible) {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  &:has(input[aria-invalid]) {
+    & > input {
+      color: var(--failure);
+      border-color: var(--accent);
+    }
+  }
+}
+
+.input {
+  box-sizing: border-box;
+  padding: 0 var(--unit-x1);
+  line-height: var(--unit-x3);
+  inline-size: 90%;
+  block-size: 100%;
+  color: var(--text-primary);
+  border: none;
+  outline: none;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}

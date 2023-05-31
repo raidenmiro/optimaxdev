@@ -1,11 +1,19 @@
 :root {
   --accent: oklch(63.78% 0.131 255.51);
+  --failure: oklch(67.06% 0.163 33.88);
 
   /* text */
   --text-primary: oklch(0% 0 0);
   --text-secondary: oklch(54% 0 0);
   --text-note: oklch(85% 0 0);
   --text-badge: oklch(100% 0 0);
+
+  /* bg */
+  --bg-base-accent: oklch(100% 0 0);
+  --bg-base-regular: oklch(70% 0.05 310 / 18%);
+
+  /* border */
+  --surface-border: oklch(81.18% 0.026 271.08);
 }
 
 @media (prefers-color-scheme: dark) {

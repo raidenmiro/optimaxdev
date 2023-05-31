@@ -9,5 +9,10 @@ module.exports = configure({
     presets.node(),
     presets.react({ version: '18.0' })
   ],
-  extend: {}
+  extend: {
+    plugins: ['@typescript-eslint'],
+    rules: {
+      '@typescript-eslint/consistent-type-imports': 'error'
+    }
+  }
 })

@@ -13,11 +13,11 @@ export function useA11y({ step, max, min }: StepperA11yProps) {
     stepperA11yProps: {
       step,
       'type': 'text',
-      'inputmode': 'numeric',
+      'inputMode': 'numeric',
       'role': 'spinbutton',
       'aria-valuemax': max,
       'aria-valuemin': min,
-      'autocomplete': 'off'
-    }
+      'autoComplete': 'off'
+    } as const
   }
 }

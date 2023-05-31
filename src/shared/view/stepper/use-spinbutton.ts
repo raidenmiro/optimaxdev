@@ -1,18 +1,17 @@
+import type { PointerEvent } from 'react'
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 
 import type { StepperProps } from '.'
-import { useCounter } from './use-count'
+import { useCounter } from './use-counter'
 
 export function useSpinbutton({
   onIncrease,
   onDecrease,
   onSwitchToMax,
   onSwitchToMin,
-  max,
-  min,
-  step
+  ...range
 }: StepperProps) {
-  const { counter, handlers } = useCounter({ max, min, step })
+  const { counter, handlers } = useCounter(range)
 
   const pinchTimer = useRef<number>()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -38,6 +37,13 @@ export function useSpinbutton({
     }
   }, [counter, handlers, onDecrease, onIncrease, onSwitchToMax, onSwitchToMin])
 
+  // sync with counter state
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.setAttribute('aria-valuenow', String(counter))
+    }
+  }, [counter])
+
   useEffect(() => {
     const timer = pinchTimer.current
     const ref = inputRef.current
@@ -47,9 +53,7 @@ export function useSpinbutton({
     const listener = (e: KeyboardEvent) => {
       if (isSpecial(e)) return
 
-      const hotkeys = Object.keys(stepChange)
-
-      if (e.key in hotkeys) {
+      if (e.key in stepChange) {
         e.preventDefault()
         // safe cast
         const onceCallback = stepChange[e.key as keyof typeof stepChange]
@@ -69,13 +73,14 @@ export function useSpinbutton({
       clearTimeout(pinchTimer.current)
 
       onButtonPressed(inputRef.current!)
+      handlers.next()
       onIncrease?.(counter)
 
       pinchTimer.current = setTimeout(() => {
         onIncreaseValue(40)
       }, delay)
     },
-    [counter, onIncrease]
+    [counter, handlers, onIncrease]
   )
 
   const onDecreaseValue = useCallback(
@@ -83,13 +88,14 @@ export function useSpinbutton({
       clearTimeout(pinchTimer.current)
 
       onButtonPressed(inputRef.current!)
+      handlers.prev()
       onDecrease?.(counter)
 
       pinchTimer.current = setTimeout(() => {
         onDecreaseValue(40)
       }, delay)
     },
-    [counter, onDecrease]
+    [counter, handlers, onDecrease]
   )
 
   return {
@@ -99,22 +105,32 @@ export function useSpinbutton({
     },
     buttons: {
       increaseProps: {
-        onPressStart: (e: PointerEvent) => {
+        onPointerDown: (e: PointerEvent) => {
+          e.preventDefault()
+
           if (holdingSupports(e)) {
             onIncreaseValue(400)
           }
         },
-        onPressEnd: () => {
+        onPointerUp: () => {
+          clearTimeout(pinchTimer.current)
+        },
+        onPointerLeave: () => {
           clearTimeout(pinchTimer.current)
         }
       },
       decreaseProps: {
-        onPressStart: (e: PointerEvent) => {
+        onPointerDown: (e: PointerEvent) => {
+          e.preventDefault()
+
           if (holdingSupports(e)) {
             onDecreaseValue(400)
           }
         },
-        onPressEnd: () => {
+        onPointerUp: () => {
+          clearTimeout(pinchTimer.current)
+        },
+        onPointerLeave: () => {
           clearTimeout(pinchTimer.current)
         }
       }

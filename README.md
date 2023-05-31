@@ -35,3 +35,13 @@ pnpm install
 ```sh
 pnpm dev
 ```
+
+## Structure
+
+- `assets` - contains static icons for build it to sprite
+
+## Thanks
+
+- [Feathericons](https://feathericons.com/)
+
+- [Martian Mono](https://github.com/evilmartians/mono)

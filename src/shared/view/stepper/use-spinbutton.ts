@@ -9,6 +9,7 @@ export function useSpinbutton({
   onDecrease,
   onSwitchToMax,
   onSwitchToMin,
+  formatValue = (v: number) => String(v),
   ...range
 }: StepperProps) {
   const { counter, handlers } = useCounter(range)
@@ -101,7 +102,7 @@ export function useSpinbutton({
   return {
     stepperProps: {
       ref: inputRef,
-      value: counter
+      value: formatValue(counter)
     },
     buttons: {
       increaseProps: {

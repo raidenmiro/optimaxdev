@@ -1,3 +1,29 @@
 .stepper {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.control {
+  --border-radius: 6px;
+
+  block-size: var(--unit-x7);
+  padding-inline: var(--unit-x2);
   border: none;
+  outline-color: var(--accent);
+
+  & > svg {
+    block-size: 14px;
+    inline-size: 14px;
+  }
+
+  &[data-spin="increase"] {
+    border-start-end-radius: var(--border-radius);
+    border-end-end-radius: var(--border-radius);
+  }
+
+  &[data-spin="decrease"] {
+    border-start-start-radius: var(--border-radius);
+    border-end-start-radius: var(--border-radius);
+  }
 }

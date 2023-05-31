@@ -23,21 +23,31 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
     const { stepperProps, buttons } = useSpinbutton(props)
     const a11y = useA11y(props)
 
+    const increaseProps = Object.assign(
+      buttons.increaseProps,
+      a11y.buttonA11yProps
+    )
+
+    const decreaseProps = Object.assign(
+      buttons.decreaseProps,
+      a11y.buttonA11yProps
+    )
+
     return (
       <View ref={ref} className={cc([props.className, s.stepper])}>
         <button
+          {...decreaseProps}
           className={s.control}
           data-spin="decrease"
-          aria-label="Decrease value"
-          {...buttons.decreaseProps}>
+          aria-label="Decrease value">
           <Icon path="sprite/minus" />
         </button>
         <Field readOnly {...stepperProps} {...a11y.stepperA11yProps} />
         <button
+          {...increaseProps}
           className={s.control}
           data-spin="increase"
-          aria-label="Increase value"
-          {...buttons.increaseProps}>
+          aria-label="Increase value">
           <Icon path="sprite/plus" />
         </button>
       </View>

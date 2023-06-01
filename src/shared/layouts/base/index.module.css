@@ -1,6 +1,8 @@
 .layout {
   position: relative;
   display: grid;
+  gap: var(--unit-x7);
+  padding-inline: var(--unit-x10);
   
   @media (width <= 930px) {
     grid-template: 
@@ -10,7 +12,8 @@
 
   @media (width >= 930px) {
     grid-template:
-      "cart summary";
+      "summary"  
+      "cart";
   }
 }
 

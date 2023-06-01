@@ -1,0 +1,18 @@
+.badge {
+  display: inline-flex;
+  gap: var(--unit-x2);
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--unit-x2);
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--magenta);
+  background: var(--magenta-faded);
+  min-block-size: 28px;
+  border-radius: 10px;
+
+  & > :where(svg) {
+    block-size: 16px;
+    inline-size: 16px;
+  }
+}

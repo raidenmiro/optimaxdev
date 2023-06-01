@@ -12,10 +12,14 @@
   --bg-base-accent: oklch(100% 0 0);
   --bg-base-regular: oklch(70% 0.05 310 / 18%);
 
-  /* border */
+  /* surface */
   --surface-border: oklch(81.18% 0.026 271.08);
   --surface-shadow: oklch(0% 0 0 / 5.1%);
   --surface-hover: oklch(62.95% 0.152 261.57 / 15%);
+
+  /* supports */
+  --magenta: oklch(62.06% 0.257 322.94);
+  --magenta-faded: oklch(70.94% 0.27 330.04 / 16%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,5 +29,12 @@
     /* text */
     --text-primary: oklch(100% 0 0);
     --text-note: oklch(45% 0 0);
+  }
+}
+
+@media (color-gamut: p3) {
+  :root {
+    --magenta: oklch(57.94% 0.285 322.94);
+    --magenta-faded: oklch(73.94% 0.27 330.04 / 16%);
   }
 }

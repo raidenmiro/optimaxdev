@@ -77,7 +77,7 @@ export function useSpinbutton({
       handlers.next()
       onIncrease?.(counter)
 
-      pinchTimer.current = setTimeout(() => {
+      pinchTimer.current = window.setTimeout(() => {
         onIncreaseValue(40)
       }, delay)
     },
@@ -92,7 +92,7 @@ export function useSpinbutton({
       handlers.prev()
       onDecrease?.(counter)
 
-      pinchTimer.current = setTimeout(() => {
+      pinchTimer.current = window.setTimeout(() => {
         onDecreaseValue(40)
       }, delay)
     },

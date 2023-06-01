@@ -10,6 +10,7 @@ import { useA11y } from './use-a11y'
 import { useSpinbutton } from './use-spinbutton'
 
 export interface StepperProps extends StepperA11yProps {
+  value?: number
   onIncrease?(v: number): void
   onDecrease?(v: number): void
   onSwitchToMax?(v: number): void

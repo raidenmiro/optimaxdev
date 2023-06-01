@@ -2,10 +2,12 @@ import { useCallback, useState } from 'react'
 
 import type { StepperProps } from '.'
 
-type Config = Pick<StepperProps, 'max' | 'min' | 'step'>
+type Config = Pick<StepperProps, 'max' | 'min' | 'step'> & {
+  value?: number
+}
 
-export function useCounter({ min, max, step }: Config) {
-  const [counter, setCounter] = useState(min)
+export function useCounter({ min, max, step, value }: Config) {
+  const [counter, setCounter] = useState(() => value ?? min)
 
   const next = useCallback(() => {
     setCounter((prev) => Math.min(prev + step, max))

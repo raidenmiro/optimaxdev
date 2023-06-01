@@ -1,5 +1,4 @@
-import { rest } from 'msw'
-import { setupServer } from 'msw/node'
+import { rest, setupWorker } from 'msw'
 import { nanoid } from 'nanoid'
 import type { Stats } from 'node:fs'
 import fs from 'node:fs/promises'
@@ -42,4 +41,4 @@ export const handlers = [
   })
 ]
 
-export const server = setupServer(...handlers)
+export const worker = setupWorker(...handlers)

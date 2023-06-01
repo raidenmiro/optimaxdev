@@ -73,5 +73,8 @@
     "commitizen": {
       "path": "cz-emoji"
     }
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

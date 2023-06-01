@@ -7,26 +7,29 @@ import path from 'node:path'
 
 import { mergePaths } from '~/shared/lib/merge-path'
 
-import type { Product } from '../schema'
+import type { Product, ProductEntity } from '../schema'
+import { maxGet, promotionsGet } from './generators'
 
 const paths = mergePaths('../../../../public', {
   products: () => 'products.json'
 })
 
+type ProductsJson = Omit<Product, 'id' | 'promotions' | 'stockQuantity'>
+
 export const handlers = [
   rest.get('/products', async (_, res, ctx) => {
     const cartPath = path.resolve(__dirname, paths.products())
 
-    const [{ products }, stat] = await Promise.all<
-      [Omit<Product, 'id'>, Stats]
-    >([
+    const [{ products }, stat] = await Promise.all<[ProductsJson, Stats]>([
       JSON.parse(await fs.readFile(cartPath, 'utf-8')),
       await fs.stat(cartPath)
     ])
 
-    const normalizedProducts = products.map((body) => ({
+    const normalizedProducts = products.map<ProductEntity>((body) => ({
       ...body,
-      id: nanoid()
+      id: nanoid(),
+      stockQuantity: maxGet(),
+      promotions: promotionsGet()
     }))
 
     return res(

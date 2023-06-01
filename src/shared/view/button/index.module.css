@@ -1,4 +1,6 @@
 .button {
+  --shadow-blur: 0;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -8,9 +10,14 @@
   background: var(--accent);
   border: none;
   border-radius: 9px;
+  box-shadow: var(--surface-hover) 0 0 0 var(--shadow-blur);
   transition-timing-function: cubic-bezier(.4,0,.2,1);
   transition-duration: .2s;
-  transition-property: transform;
+  transition-property: transform, box-shadow;
+
+  &:hover {
+    --shadow-blur: 8px;
+  }
 
   &:active {
     transform: scale(.95);

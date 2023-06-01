@@ -6,7 +6,7 @@ import type {
   FormEvent,
   ReactNode
 } from 'react'
-import { forwardRef } from 'react'
+import { forwardRef, useRef } from 'react'
 
 import { isIphone } from '~/shared/lib/platform'
 
@@ -19,9 +19,6 @@ export interface FieldProps extends BaseFieldProps {
   startIcon?: ReactNode
   endIcon?: ReactNode
 }
-
-const meta = document.querySelector('meta') as HTMLMetaElement
-const originViewport = meta.content
 
 const Input = forwardRef<HTMLInputElement, FieldProps>(
   (
@@ -37,6 +34,9 @@ const Input = forwardRef<HTMLInputElement, FieldProps>(
     },
     forwardedRef
   ) => {
+    const meta = useRef(document.querySelector('meta') as HTMLMetaElement)
+    const originViewport = useRef(meta.current.content)
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       onChange?.(e)
       onChangeValue?.(e.target.value)
@@ -45,7 +45,10 @@ const Input = forwardRef<HTMLInputElement, FieldProps>(
     // prevent zoom when input is focus
     const handleInput = (e: FormEvent<HTMLInputElement>) => {
       if (isIphone) {
-        meta.content = originViewport + ',maximum-scale=1,user-scalable=0'
+        const avoidZoom =
+          originViewport.current + ',maximum-scale=1,user-scalable=0'
+
+        meta.current.content = avoidZoom
       }
 
       onInput?.(e)
@@ -53,7 +56,7 @@ const Input = forwardRef<HTMLInputElement, FieldProps>(
 
     const handleBlur = (e: FocusEvent<HTMLInputElement, Element>) => {
       if (isIphone) {
-        meta.content = originViewport
+        meta.current.content = originViewport.current
       }
 
       onBlur?.(e)

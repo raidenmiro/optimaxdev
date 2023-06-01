@@ -1,0 +1,12 @@
+body {
+  --card-padding: 40px;
+  --card-radius: 20px; 
+}
+
+.card {
+  position: relative;
+  padding: var(--card-padding);
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  box-shadow: 0 20px 40px var(--surface-shadow);
+}

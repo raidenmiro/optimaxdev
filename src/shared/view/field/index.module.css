@@ -2,12 +2,12 @@
   position: relative;
   box-sizing: border-box;
   block-size: var(--unit-x7);
+  inline-size: fit-content;
   display: flex;
   padding: 1px;
   overflow: hidden;
   background: var(--bg-base-accent);
   border: 1px solid var(--surface-border);
-  border-radius: 4px;
 
   &:has(input:focus-visible) {
     border-color: var(--accent);

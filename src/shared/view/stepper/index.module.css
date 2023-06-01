@@ -15,6 +15,7 @@
   & > svg {
     block-size: 14px;
     inline-size: 14px;
+    pointer-events: none;
   }
 
   &[data-spin="increase"] {

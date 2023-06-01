@@ -15,8 +15,10 @@
   transition-duration: .2s;
   transition-property: transform, box-shadow;
 
-  &:hover {
-    --shadow-blur: 8px;
+  @media (hover: hover) {
+    &:hover {
+      --shadow-blur: 8px;
+    }
   }
 
   &:active {

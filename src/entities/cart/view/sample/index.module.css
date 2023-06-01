@@ -1,0 +1,45 @@
+body {
+  --cart-height: 90px;
+}
+
+.cart_item {
+  display: flex;
+  gap: var(--unit-x4);
+}
+
+.cart_preview {
+  inline-size: 90px;
+  block-size: var(--cart-height);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+
+  & img {
+    object-fit: cover;
+    block-size: 100%;
+    inline-size: 100%;
+    box-shadow: 2px ;
+  }
+}
+
+.cart_info {
+  display: flex;
+  flex-direction: column;
+  block-size: calc(var(--cart-height) - var(--unit-x2));
+  
+  & > :where(h2) {
+    margin-block-end: var(--unit-x1);
+    font-size: 20px;
+  }
+
+  & > :where(span) {
+    flex-grow: 1;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+}
+
+.cart_stocks {
+  margin-block-start: var(--unit-x2);
+}
+

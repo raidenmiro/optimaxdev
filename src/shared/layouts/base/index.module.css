@@ -1,0 +1,23 @@
+.layout {
+  position: relative;
+  display: grid;
+  
+  @media (width <= 930px) {
+    grid-template: 
+      "cart"
+      "summary";
+  }
+
+  @media (width >= 930px) {
+    grid-template:
+      "cart summary";
+  }
+}
+
+.cart {
+  grid-area: cart;
+}
+
+.summary {
+  grid-area: summary;
+}

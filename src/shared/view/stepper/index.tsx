@@ -1,4 +1,5 @@
 import cc from 'classcat'
+import type { CSSProperties } from 'react'
 import { forwardRef } from 'react'
 
 import { Field } from '../field'
@@ -17,10 +18,11 @@ export interface StepperProps extends StepperA11yProps {
   onSwitchToMin?(v: number): void
   formatValue?(value: number): string
   className?: string
+  position?: 'start' | 'center' | 'end'
 }
 
 export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
-  (props, ref) => {
+  ({ position = 'start', ...props }, ref) => {
     const { stepperProps, buttons } = useSpinbutton(props)
     const a11y = useA11y(props)
 
@@ -34,8 +36,15 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
       a11y.buttonA11yProps
     )
 
+    const styles = {
+      '--text-position': position
+    } as CSSProperties
+
     return (
-      <View ref={ref} className={cc([props.className, s.stepper])}>
+      <View
+        ref={ref}
+        style={styles}
+        className={cc([props.className, s.stepper])}>
         <button
           {...decreaseProps}
           className={s.control}

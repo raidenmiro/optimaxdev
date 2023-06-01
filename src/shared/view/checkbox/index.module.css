@@ -1,0 +1,39 @@
+.checkbox {
+  --checkbox-radius: 4px;
+  --checkbox-size: var(--unit-x7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  block-size: var(--checkbox-size);
+  inline-size: var(--checkbox-size);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--checkbox-radius);
+
+  & svg {
+    block-size: calc(var(--checkbox-size) - 8px);
+    inline-size: calc(var(--checkbox-size) - 8px);
+    pointer-events: none;
+  }
+}
+
+.button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: var(--checkbox-radius);
+  block-size: var(--checkbox-size);
+  inline-size: var(--checkbox-size);
+}
+
+.input {
+  position: absolute;
+  margin: 0;
+  pointer-events: none;
+  opacity: 0%;
+  transform: translateX(-100%);
+  block-size: var(--checkbox-size);
+  inline-size: var(--checkbox-size);
+}

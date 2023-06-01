@@ -5,7 +5,7 @@ import { Stepper } from '..'
 vi.spyOn(document, 'querySelector').mockImplementation(
   () =>
     ({
-      content: ''
+      content: 'width=device-width,initial-scale=1'
     } as HTMLMetaElement)
 )
 

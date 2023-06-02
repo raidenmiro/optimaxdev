@@ -17,7 +17,7 @@ export function CartItem({
   currency,
   image,
   price
-}: MergeTypes<ProductEntity, { currency: string }>) {
+}: MergeTypes<ProductEntity, { currency: string; quantity: number }>) {
   const formattedPrice = `${price}${currency}`
 
   return (

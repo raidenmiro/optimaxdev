@@ -9,7 +9,7 @@ const PROMOTIONS = [
 export function promotionsGet() {
   return Array.from(
     { length: Math.floor(Math.random() * 2) },
-    ()=> PROMOTIONS[Math.floor(Math.random() * PROMOTIONS.length - 1)]
+    () => PROMOTIONS[Math.floor(Math.random() * PROMOTIONS.length - 1)]
   )
 }
 

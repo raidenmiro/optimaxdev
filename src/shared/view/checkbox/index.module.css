@@ -1,6 +1,7 @@
 .checkbox {
-  --checkbox-radius: 4px;
+  --checkbox-radius: 8px;
   --checkbox-size: var(--unit-x7);
+  --checkbox-shadow-blur: 0;
 
   display: flex;
   align-items: center;
@@ -9,11 +10,16 @@
   inline-size: var(--checkbox-size);
   border: 1px solid var(--surface-border);
   border-radius: var(--checkbox-radius);
+  box-shadow: var(--surface-hover) 0 0 0 var(--shadow-blur);
 
   & svg {
     block-size: calc(var(--checkbox-size) - 8px);
     inline-size: calc(var(--checkbox-size) - 8px);
     pointer-events: none;
+  }
+
+  &:has(button:focus-visible) {
+    --shadow-blur: 4px;
   }
 }
 

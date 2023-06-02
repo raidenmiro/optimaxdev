@@ -21,6 +21,12 @@
   &:has(button:focus-visible) {
     --shadow-blur: 4px;
   }
+
+  @media (hover: hover) {
+    &:has(button:hover) {
+      --shadow-blur: 4px;
+    }
+  }
 }
 
 .button {

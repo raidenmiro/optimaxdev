@@ -29,7 +29,6 @@
   line-height: var(--unit-x3);
   inline-size: 90%;
   block-size: 100%;
-  color: var(--text-primary);
   border: none;
   outline: none;
 }

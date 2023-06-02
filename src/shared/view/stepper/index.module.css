@@ -2,7 +2,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  max-inline-size: 50px;
+  max-inline-size: 40px;
   
   & input {
     text-align: var(--text-position);
@@ -14,6 +14,7 @@
 
   block-size: var(--unit-x7);
   padding-inline: var(--unit-x2);
+  background: transparent;
   border: none;
   outline-color: var(--accent);
 
@@ -24,11 +25,15 @@
   }
 
   &[data-spin="increase"] {
+    border-block: 1px solid var(--surface-border);
+    border-inline-end: 1px solid var(--surface-border);
     border-start-end-radius: var(--border-radius);
     border-end-end-radius: var(--border-radius);
   }
 
   &[data-spin="decrease"] {
+    border-block: 1px solid var(--surface-border);
+    border-inline-start: 1px solid var(--surface-border);
     border-start-start-radius: var(--border-radius);
     border-end-start-radius: var(--border-radius);
   }

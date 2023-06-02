@@ -16,3 +16,10 @@ button {
   font-family: "Martian Mono", monospace;
   font-size: 15px;
 }
+
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  inline-size: 0;
+}

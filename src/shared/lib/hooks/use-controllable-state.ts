@@ -4,22 +4,21 @@ import { useCallbackRef } from './use-stable-ref'
 
 export function useControllableState<T>(config: {
   value?: T
-  onChange: (value: T) => void
+  onChange?: (value: T) => void
   defaultValue: T
 }) {
-  const { value, onChange, defaultValue } = config
+  const { value, onChange = () => {}, defaultValue } = config
 
   const [uncontrolledState, setUncontrolledState] = useUncontrolledState(
     defaultValue,
     onChange
   )
-
-  const isControlled = typeof value === 'undefined'
-  const stateValue = isControlled ? uncontrolledState : value
+  const isControlled = typeof value !== 'undefined'
+  const stateValue = isControlled ? value : uncontrolledState
   const handleChange = useCallbackRef(onChange)
 
   const setNext = useCallback(
-    (next: T) => {
+    (next: T | ((payload: T) => T)) => {
       if (isControlled) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const setter = next as (value: any) => T

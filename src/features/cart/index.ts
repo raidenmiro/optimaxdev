@@ -1,16 +1,7 @@
-import { fetchAll, fetchAllFailed, fetchAllSuccess } from './actions'
-import { actions, name, reducer } from './reducer'
-
-export * as cartSelectors from './selectors'
+import * as fetchActions from './actions'
+import { actions } from './reducer'
 
 // public api
-export const cart = {
-  name,
-  reducer
-}
-
-export const cartActions = Object.assign(actions, {
-  fetchAll,
-  fetchAllSuccess,
-  fetchAllFailed
-})
+export { cart } from './reducer'
+export * as cartSelectors from './selectors'
+export const cartActions = Object.assign(actions, fetchActions)

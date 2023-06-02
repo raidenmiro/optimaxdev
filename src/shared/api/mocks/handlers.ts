@@ -6,14 +6,14 @@ import path from 'node:path'
 
 import { mergePaths } from '~/shared/lib/merge-path'
 
-import type { Product, ProductEntity } from '../schema'
+import type { ProductEntity, ProductResponse } from '../schema'
 import { maxGet, promotionsGet } from './generators'
 
 const paths = mergePaths('../../../../public', {
   products: () => 'products.json'
 })
 
-type ProductsJson = Omit<Product, 'id' | 'promotions' | 'stockQuantity'>
+type ProductsJson = Omit<ProductResponse, 'id' | 'promotions' | 'stockQuantity'>
 
 export const handlers = [
   rest.get('/products', async (_, res, ctx) => {

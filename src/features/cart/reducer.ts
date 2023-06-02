@@ -3,19 +3,21 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { cartAdapter } from '~/entities/cart/model'
 
+import { fetchAllSuccess } from './actions'
 import type {
   AddOneParams,
   ChangeQuantityParams,
   DeleteOneParams
 } from './types'
 
-export const name = 'entities/cart'
-const initialState = Object.assign(cartAdapter.getInitialState(), {
+const REDUCER_PATH = 'cart'
+
+const initialState = cartAdapter.getInitialState({
   isLoading: false
 })
 
 export const CartSlice = createSlice({
-  name,
+  name: REDUCER_PATH,
   initialState,
   reducers: {
     addOne: (state, action: PayloadAction<AddOneParams>) => {
@@ -41,8 +43,13 @@ export const CartSlice = createSlice({
 
       cartAdapter.removeOne(state, cartItemId)
     }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllSuccess, (state, action) => {
+      cartAdapter.setAll(state, action.payload)
+    })
   }
 })
 
-export const reducer = CartSlice.reducer
+export const cart = { reducer: CartSlice.reducer, name: CartSlice.name }
 export const actions = CartSlice.actions

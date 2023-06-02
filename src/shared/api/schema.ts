@@ -8,7 +8,7 @@ export interface ProductEntity {
   category: string
 }
 
-export interface Product {
+export interface ProductResponse {
   products: ProductEntity[]
   currency: string
 }

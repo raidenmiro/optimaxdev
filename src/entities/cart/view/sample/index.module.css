@@ -40,6 +40,8 @@ body {
 }
 
 .cart_stocks {
+  display: inline-flex;
+  gap: var(--unit-x2);
   margin-block-start: var(--unit-x2);
 }
 

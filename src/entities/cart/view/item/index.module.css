@@ -1,0 +1,17 @@
+.container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: var(--unit-x10) repeat(5, 1fr) var(--unit-x10);
+  inline-size: 100%;
+  gap: var(--unit-x3);
+}
+
+.column {
+  align-self: center;
+  justify-self: center;
+}
+
+.total {
+  font-size: 24px;
+  color: var(--magenta);
+}

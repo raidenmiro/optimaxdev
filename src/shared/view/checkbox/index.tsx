@@ -15,15 +15,14 @@ export interface CheckboxProps extends BaseProps {
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, checked, onValueChanged, ...props }, forwardedRef) => {
+  ({ className, checked = false, onValueChanged, ...props }, forwardedRef) => {
     const [checkedValue, setChecked] = useControllableState({
-      value: checked,
       onChange: onValueChanged,
-      defaultValue: true
+      defaultValue: checked
     })
 
     const handlePressed = () => {
-      setChecked(true)
+      setChecked((checked) => !checked)
     }
 
     return (

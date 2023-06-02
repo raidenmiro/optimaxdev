@@ -1,6 +1,7 @@
 :root {
   --accent: oklch(62.95% 0.152 261.57);
   --failure: oklch(67.06% 0.163 33.88);
+  --failure-faded: oklch(80.06% 0.158 34.88 / 16%);
 
   /* text */
   --text-primary: oklch(0% 0 0);

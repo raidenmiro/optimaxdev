@@ -1,0 +1,23 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--unit-x2);
+  line-height: 1;
+  block-size: var(--unit-x8);
+  color: var(--failure);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+
+  & svg {
+    inline-size: var(--unit-x5);
+    block-size: var(--unit-x5);
+  }
+
+  @media (hover: hover) {
+   &:hover {
+     background: var(--failure-faded);
+   }
+  }
+}

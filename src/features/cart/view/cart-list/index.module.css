@@ -1,0 +1,10 @@
+.sample {
+  display: grid;
+  gap: var(--unit-x5);
+  margin-block-start: var(--unit-x5);
+
+  & > *:not(:last-child) {
+    padding-block: var(--unit-x4);
+    border-block-end: 1px solid oklch(90% 0 0);
+  }
+}

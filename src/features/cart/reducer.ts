@@ -1,11 +1,13 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
+import { nanoid } from 'nanoid'
 
 import { cartAdapter } from '~/entities/cart/model'
+import type { CartEntity } from '~/shared/api/schema'
 
 import { fetchAllSuccess } from './actions'
 import type {
-  AddOneParams,
+  AddToBugParams,
   ChangeQuantityParams,
   DeleteOneParams
 } from './types'
@@ -20,8 +22,19 @@ export const CartSlice = createSlice({
   name: REDUCER_PATH,
   initialState,
   reducers: {
-    addOne: (state, action: PayloadAction<AddOneParams>) => {
-      cartAdapter.addOne(state, action.payload.body)
+    addOne: (state, action: PayloadAction<AddToBugParams>) => {
+      const { productId, price } = action.payload
+
+      const nextItem: CartEntity = {
+        productId,
+        id: nanoid(),
+        quantity: 1,
+        total: price,
+        createAt: new Date(),
+        updatedAt: new Date()
+      }
+
+      cartAdapter.setOne(state, nextItem)
     },
     deleteOne: (state, action: PayloadAction<DeleteOneParams>) => {
       cartAdapter.removeOne(state, action.payload.cartItemId)

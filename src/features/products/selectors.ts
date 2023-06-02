@@ -3,9 +3,14 @@ import { createSelector } from '@reduxjs/toolkit'
 import { productsAdapter } from '~/entities/products/model'
 import type { RootState } from '~/shared/lib/redux-std/store'
 
-const entities = productsAdapter.getSelectors()
+export const productEntities = productsAdapter.getSelectors()
 const everyThing = (state: RootState) => state.products
 
 export const all = createSelector(everyThing, (state) =>
-  entities.selectAll(state)
+  productEntities.selectAll(state)
+)
+export const details = createSelector(
+  everyThing,
+  (_: unknown, id: string) => id,
+  productEntities.selectById
 )

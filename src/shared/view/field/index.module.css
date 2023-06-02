@@ -6,7 +6,6 @@
   display: flex;
   padding: 1px;
   overflow: hidden;
-  background: var(--bg-base-accent);
   border: 1px solid var(--surface-border);
 
   &:has(input:focus-visible) {
@@ -17,7 +16,7 @@
   &:has(input[aria-invalid]) {
     border-color: var(--failure);
 
-    & > input {
+    & input {
       color: var(--failure);
     }
   }

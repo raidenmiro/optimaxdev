@@ -1,0 +1,35 @@
+{
+  "body": [
+    {
+      "id": "132",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": 109.95,
+      "name": "Casual Slim Fit",
+      "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1588099768531-a72d4a198538?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      "price": 249.99,
+      "name": "Bracelet",
+      "description": "Bracelet of Protection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+      "price": 99.99,
+      "name": "T-shirt",
+      "description": "T-shirt is a type of cloth"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": 59.99,
+      "name": "Mens Cotton Jacket",
+      "description": "Mens Cotton Jacket is a type of cloth"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1578681994506-b8f463449011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80",
+      "price": 9.85,
+      "name": "Solid Short Sleeve",
+      "description": "Good Short Sleeve"
+    }
+  ]
+}

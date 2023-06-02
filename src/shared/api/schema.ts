@@ -2,13 +2,25 @@ export interface ProductEntity {
   id: string
   name: string
   price: number
+  description: string
   promotions: string[]
-  stockQuantity: number
   image: string
-  category: string
 }
 
 export interface ProductResponse {
-  products: ProductEntity[]
+  body: ProductEntity[]
   currency: string
+}
+
+export interface CartEntity {
+  id: string
+  productId: string
+  quantity: number
+  total: number
+  createAt: Date
+  updatedAt: Date
+}
+
+export interface CartResponse {
+  body: CartEntity[]
 }

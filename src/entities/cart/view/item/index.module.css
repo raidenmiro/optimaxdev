@@ -1,17 +1,22 @@
 .container {
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: var(--unit-x10) repeat(5, 1fr) var(--unit-x10);
-  inline-size: 100%;
-  gap: var(--unit-x3);
+  grid-template-columns: 40px 1fr 100px;
 }
 
-.column {
-  align-self: center;
-  justify-self: center;
+.sample {
+  flex-grow: 1;
 }
 
-.total {
-  font-size: 24px;
+.footer {
+  position: relative;
+  align-self: self-start;
   color: var(--magenta);
+  text-align: end;
+  block-size: 100%;
+}
+
+.quantity {
+  position: absolute;
+  inset-block-end: 0;
 }

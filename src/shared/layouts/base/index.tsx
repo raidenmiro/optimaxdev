@@ -18,7 +18,12 @@ function Summary({ children }: ChildrenProps) {
   return <section className={s.summary}>{children}</section>
 }
 
+function Goods({ children }: ChildrenProps) {
+  return <section className={s.goods}>{children}</section>
+}
+
 export const Layout = Object.assign(Root, {
   Summary,
+  Goods,
   Cart
 })

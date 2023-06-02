@@ -9,10 +9,10 @@ const PROMOTIONS = [
 export function promotionsGet() {
   return Array.from(
     { length: Math.floor(Math.random() * 2) },
-    () => PROMOTIONS[Math.floor(Math.random() * PROMOTIONS.length - 1)]
+    () => PROMOTIONS[Math.floor(Math.random() * PROMOTIONS.length)]
   )
 }
 
-export function maxGet() {
-  return Math.floor(Math.random() * 10)
+export function quantityGet(max = 10, min = 1) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }

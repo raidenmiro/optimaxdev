@@ -1,18 +1,25 @@
 import { Stepper } from '~/shared/view/stepper'
 
 export interface QuantityProps {
-  maxQuantity: number
   quantity: number
+  className?: string
+  changeQuantity(n: number): void
 }
 
-export function Quantity({ maxQuantity, quantity }: QuantityProps) {
+export function Quantity({
+  quantity,
+  className,
+  changeQuantity
+}: QuantityProps) {
   return (
     <Stepper
       min={0}
       step={1}
-      max={maxQuantity}
+      max={10}
       value={quantity}
+      className={className}
       position="center"
+      onChangeValue={changeQuantity}
     />
   )
 }

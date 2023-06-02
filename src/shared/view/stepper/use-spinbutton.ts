@@ -9,6 +9,7 @@ export function useSpinbutton({
   onDecrease,
   onSwitchToMax,
   onSwitchToMin,
+  onChangeValue,
   formatValue = (v: number) => String(v),
   ...range
 }: StepperProps) {
@@ -40,10 +41,12 @@ export function useSpinbutton({
 
   // sync with counter state
   useEffect(() => {
+    onChangeValue?.(counter)
+
     if (inputRef.current) {
       inputRef.current.setAttribute('aria-valuenow', String(counter))
     }
-  }, [counter])
+  }, [counter, onChangeValue])
 
   useEffect(() => {
     const timer = pinchTimer.current
@@ -74,8 +77,8 @@ export function useSpinbutton({
       clearTimeout(pinchTimer.current)
 
       onButtonPressed(inputRef.current!)
-      handlers.next()
       onIncrease?.(counter)
+      handlers.next()
 
       pinchTimer.current = window.setTimeout(() => {
         onIncreaseValue(40)
@@ -89,8 +92,8 @@ export function useSpinbutton({
       clearTimeout(pinchTimer.current)
 
       onButtonPressed(inputRef.current!)
-      handlers.prev()
       onDecrease?.(counter)
+      handlers.prev()
 
       pinchTimer.current = window.setTimeout(() => {
         onDecreaseValue(40)

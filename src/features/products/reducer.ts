@@ -21,8 +21,7 @@ export const productsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllSuccess, (state, action) => {
-      const products = action.payload.products
-      productsAdapter.addMany(state, products)
+      productsAdapter.addMany(state, action.payload)
     })
   }
 })

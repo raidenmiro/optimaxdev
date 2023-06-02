@@ -1,49 +1,60 @@
-import cc from 'classcat'
+import { useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import type { ProductEntity } from '~/shared/api/schema'
-import type { MergeTypes } from '~/shared/lib/types'
+import { cartActions, cartSelectors } from '~/features/cart'
+import { productsSelector } from '~/features/products'
+import type { CartEntity } from '~/shared/api/schema'
+import type { RootState } from '~/shared/lib/redux-std/store'
 import { Checkbox } from '~/shared/view/checkbox'
 import { View } from '~/shared/view/generic'
 
 import { CartSample, Quantity } from '..'
 import s from './index.module.css'
 
-export function CartItem({
-  name,
-  quantity,
-  stockQuantity,
-  category,
-  promotions,
-  currency,
-  image,
-  price
-}: MergeTypes<ProductEntity, { currency: string; quantity: number }>) {
-  const formattedPrice = `${price}${currency}`
+interface CartItemProps {
+  id: string
+  cart: CartEntity
+}
+
+export function CartItem({ id, cart }: CartItemProps) {
+  const dispatch = useDispatch()
+
+  const item = useSelector((state: RootState) =>
+    productsSelector.details(state, id)
+  )
+
+  const total = useSelector((state: RootState) =>
+    cartSelectors.totalById(state, cart.id)
+  )
+
+  const changeQuantity = useCallback(
+    (n: number) => {
+      dispatch(cartActions.changeQuantity({ quantity: n, cartItemId: cart.id }))
+    },
+    [cart.id, dispatch]
+  )
+
+  if (!item) {
+    return null
+  }
 
   return (
     <View className={s.container}>
-      <View className={s.column}>
-        <Checkbox />
-      </View>
-
-      <View className={s.column}>
+      <Checkbox />
+      <View className={s.sample}>
         <CartSample
-          category={category}
-          image={image}
-          promotions={promotions}
-          name={name}
+          image={item.image}
+          promotions={item.promotions}
+          name={item.name}
         />
       </View>
-
-      <View className={s.column}>
-        <Quantity maxQuantity={stockQuantity} quantity={quantity} />
-      </View>
-
-      <View className={cc([s.total, s.column])}>
-        <View as="span">{formattedPrice}</View>
-        <View as="span" className="sr-only">
-          {currency}
-        </View>
+      <View className={s.footer}>
+        <View>{total}</View>
+        <Quantity
+          className={s.quantity}
+          quantity={cart.quantity}
+          changeQuantity={changeQuantity}
+        />
       </View>
     </View>
   )

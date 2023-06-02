@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   block-size: calc(var(--unit-x1) * 13);
-  inline-size: calc(var(--unit-x10) * 7);
+  padding-inline: var(--unit-x4);
+  inline-size: 100%;
   color: var(--text-badge);
   background: var(--accent);
   border: none;
@@ -23,5 +24,10 @@
 
   &:active {
     transform: scale(.95);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 50%;
   }
 }

@@ -7,18 +7,20 @@
   --text-note: oklch(85% 0 0);
   --text-badge: oklch(100% 0 0);
   --bg-base-accent: oklch(100% 0 0);
-  --bg-base-regular: oklch(70% 0.05 310 / 18%);
+  --bg-base-regular: oklch(96.12% 0 0 / 70%);
   --surface-border: oklch(81.18% 0.026 271.08);
   --surface-shadow: oklch(0% 0 0 / 5.1%);
   --surface-hover: oklch(62.95% 0.152 261.57 / 15%);
   --magenta: oklch(55.06% 0.280 322.94);
-  --magenta-faded: oklch(70.94% 0.27 330.04 / 16%);
+  --magenta-faded: oklch(70.94% 0.27 330.04 / 10%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --accent: oklch(63.78% 0.131 255.51);
     --bg-base-accent: oklch(9.69% 0 0);
+    --surface-border: oklch(26.86% 0 0);
+    --surface-hover: oklch(26.86% 0 0 / 10%);
     --text-primary: oklch(95.89% 0.019 145.43);
     --text-secondary: oklch(68.3% 0 0);
   }
@@ -27,6 +29,6 @@
 @media (color-gamut: p3) {
   :root {
     --magenta: oklch(57.94% 0.285 322.94);
-    --magenta-faded: oklch(73.94% 0.27 330.04 / 16%);
+    --magenta-faded: oklch(73.94% 0.27 330.04 / 10%);
   }
 }

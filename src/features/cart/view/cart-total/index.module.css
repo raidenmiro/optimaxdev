@@ -1,0 +1,4 @@
+.total {
+  display: grid;
+  gap: var(--unit-x5);
+}

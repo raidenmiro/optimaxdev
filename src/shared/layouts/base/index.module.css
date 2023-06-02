@@ -1,26 +1,43 @@
+body {
+  --container-width: 1200px;
+}
+
 .layout {
   position: relative;
   display: grid;
   gap: var(--unit-x7);
   padding-inline: var(--unit-x10);
-  
-  @media (width <= 930px) {
-    grid-template: 
-      "cart"
-      "summary";
+  max-inline-size: var(--container-width);  
+  margin: var(--unit-x10) auto;
+
+  @media (width < 930px) {
+    --container-width: 930px;
+
+    grid-template:
+      "cart cart"  
+      "summary summary"
+      "goods goods";
+    padding-inline: 10px;
   }
 
-  @media (width >= 930px) {
+  @media (width >= 950px) {
     grid-template:
-      "summary"  
-      "cart";
+      "cart summary"  
+      "cart summary"
+      "goods goods";
   }
 }
 
 .cart {
   grid-area: cart;
+  inline-size: 700px;
 }
 
 .summary {
   grid-area: summary;
+  inline-size: 400px;
+}
+
+.goods {
+  grid-area: goods;
 }

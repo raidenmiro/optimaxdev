@@ -1,7 +1,6 @@
-import type { CartItemEntity } from '~/entities/cart/model'
-
-export interface AddOneParams {
-  body: Omit<CartItemEntity, 'id'>
+export interface AddToBugParams {
+  productId: string
+  price: number
 }
 
 export interface DeleteOneParams {

@@ -1,41 +1,40 @@
 import { rest, setupWorker } from 'msw'
 import { nanoid } from 'nanoid'
-import type { Stats } from 'node:fs'
-import fs from 'node:fs/promises'
-import path from 'node:path'
 
-import { mergePaths } from '~/shared/lib/merge-path'
-
-import type { ProductEntity, ProductResponse } from '../schema'
-import { maxGet, promotionsGet } from './generators'
-
-const paths = mergePaths('../../../../public', {
-  products: () => 'products.json'
-})
-
-type ProductsJson = Omit<ProductResponse, 'id' | 'promotions' | 'stockQuantity'>
+import type { CartEntity, ProductEntity } from '../schema'
+import { promotionsGet, quantityGet } from './generators'
 
 export const handlers = [
   rest.get('/products', async (_, res, ctx) => {
-    const cartPath = path.resolve(__dirname, paths.products())
+    const json = await import('../../../../public/data/products.json')
 
-    const [{ products }, stat] = await Promise.all<[ProductsJson, Stats]>([
-      JSON.parse(await fs.readFile(cartPath, 'utf-8')),
-      await fs.stat(cartPath)
-    ])
-
-    const normalizedProducts = products.map<ProductEntity>((body) => ({
+    const normalizedProducts = json.body.map<ProductEntity>((body) => ({
       ...body,
-      id: nanoid(),
-      stockQuantity: maxGet(),
+      id: 'id' in body ? (body.id as string) : nanoid(),
       promotions: promotionsGet()
     }))
 
     return res(
-      ctx.status(200),
       ctx.json({
-        products: normalizedProducts,
-        updatedAt: new Date(stat.mtime)
+        body: normalizedProducts
+      })
+    )
+  }),
+
+  rest.get('/cart', async (_, res, ctx) => {
+    const json = await import('../../../../public/data/cart.json')
+
+    const normalizedCarts = json.body.map<CartEntity>((body) => ({
+      ...body,
+      id: 'id' in body ? (body.id as string) : nanoid(),
+      createAt: new Date(body.createAt),
+      updatedAt: new Date(body.updatedAt),
+      quantity: quantityGet()
+    }))
+
+    return res(
+      ctx.json({
+        body: normalizedCarts
       })
     )
   })

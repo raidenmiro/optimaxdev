@@ -1,0 +1,57 @@
+body {
+  --controls-opacity: 0%;
+}
+
+.container {
+  position: relative;
+  max-inline-size: var(--container-width);
+
+  @media (hover: hover) {
+    &:hover {
+      --controls-opacity: 100%;
+    }
+  }
+}
+
+.item {
+  max-inline-size: 300px;
+}
+
+.control {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  opacity: var(--controls-opacity);
+  transition: opacity 0.2s ease-in-out;
+  transform: translateY(-50%);
+  block-size: 55px;
+  inline-size: 55px;
+  inset-block-start: 50%;
+
+  &:disabled {
+    opacity: 0%;
+  }
+
+  & svg {
+    block-size: 35px;
+    inline-size: 35px;
+    margin-inline-start: -7px;
+    transform: rotate(var(--arrow-deg, 90deg));
+  }
+
+  &.is_increase {
+    inset-inline-end: 20px;
+
+    & svg {
+      margin-inline-start: 8px;
+    }
+  }
+
+  &.is_decrease {
+    inset-inline-start: -22px;
+  }
+}
+

@@ -20,6 +20,7 @@
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "skipDefaultLibCheck": true,
 
     "types": ["vitest/globals", "@testing-library/jest-dom"],
 

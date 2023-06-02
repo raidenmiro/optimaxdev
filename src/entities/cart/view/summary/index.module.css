@@ -1,0 +1,26 @@
+.card {
+  box-sizing: border-box;
+  padding: 24px;
+  background: var(--bg-base-regular);
+  border-radius: 20px;
+}
+
+.card_header {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.card_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-block-end: var(--unit-x5);
+  }
+}
+
+.card_divider {
+  padding-block: var(--unit-x5);
+  border-block-end: 1px solid oklch(90% 0 0);
+}

@@ -27,7 +27,7 @@ body {
   flex-direction: column;
   block-size: calc(var(--cart-height) - var(--unit-x2));
   
-  & > :where(h2) {
+  & h2 {
     margin-block-end: var(--unit-x1);
     font-size: 20px;
   }

@@ -17,6 +17,7 @@ export interface StepperProps extends StepperA11yProps {
   onSwitchToMax?(v: number): void
   onSwitchToMin?(v: number): void
   formatValue?(value: number): string
+  onChangeValue?(value: number): void
   className?: string
   position?: 'start' | 'center' | 'end'
 }

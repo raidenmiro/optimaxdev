@@ -6,15 +6,10 @@ import s from './index.module.css'
 
 export type CartSampleProps = Pick<
   ProductEntity,
-  'name' | 'image' | 'category' | 'promotions'
+  'name' | 'image' | 'promotions'
 >
 
-export function CartSample({
-  name,
-  image,
-  category,
-  promotions
-}: CartSampleProps) {
+export function CartSample({ name, image, promotions }: CartSampleProps) {
   return (
     <View className={s.cart_item}>
       <View className={s.cart_preview}>
@@ -22,12 +17,13 @@ export function CartSample({
       </View>
       <View className={s.cart_info}>
         <View as="h2">{name}</View>
-        <View as="span">{category}</View>
-        <View className={s.cart_stocks}>
-          {promotions.map((promotion) => (
-            <Badge key={promotion} label={promotion} />
-          ))}
-        </View>
+        {promotions.length > 0 && (
+          <View className={s.cart_stocks}>
+            {promotions.map((promotion) => (
+              <Badge key={promotion} label={promotion} />
+            ))}
+          </View>
+        )}
       </View>
     </View>
   )

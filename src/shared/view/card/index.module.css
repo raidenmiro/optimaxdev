@@ -5,6 +5,7 @@ body {
 
 .card {
   position: relative;
+  box-sizing: border-box;
   padding: var(--card-padding);
   overflow: hidden;
   border-radius: var(--card-radius);

@@ -23,3 +23,7 @@ button {
   clip: rect(1px, 1px, 1px, 1px);
   inline-size: 0;
 }
+
+:root {
+  color-scheme: var(--color-scheme, light);
+}

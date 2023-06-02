@@ -25,7 +25,8 @@
   "dependencies": {
     "classcat": "^5.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "redux-saga": "^1.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",

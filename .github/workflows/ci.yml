@@ -36,6 +36,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://optimax-dev-test-task.web.app
     needs:
       - checks
     steps:
@@ -49,12 +52,15 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build app
+        run: pnpm build
       
-      - name: Build application
+      - name: Deploy application
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_OPTIMAX_DEV_TEST_TASK }}"
           projectId: optimax-dev-test-task
           channelId: live
       

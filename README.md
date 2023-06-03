@@ -11,6 +11,7 @@
 - [Requirements](https://github.com/optimaxdev/frontend-test)
 - [Setup](#setup)
 - [Development](#development)
+- [Structure](#structure)
 - [Acknowledgements](#acknowledgements)
 
 ## Setup

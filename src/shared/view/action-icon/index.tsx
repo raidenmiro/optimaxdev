@@ -6,12 +6,13 @@ import s from './index.module.css'
 
 export interface ActionIconProps {
   path: ComponentProps<typeof Icon>['path']
+  onPress?(): void
 }
 
 export const ActionIcon = forwardRef<HTMLButtonElement, ActionIconProps>(
-  ({ path }, forwardedRef) => {
+  ({ path, onPress }, forwardedRef) => {
     return (
-      <button ref={forwardedRef} className={s.button}>
+      <button ref={forwardedRef} onClick={onPress} className={s.button}>
         <Icon path={path} />
       </button>
     )

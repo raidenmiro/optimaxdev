@@ -29,6 +29,7 @@ body {
   
   & h2 {
     margin-block-end: var(--unit-x1);
+    margin-block-end: 10px;
     font-size: 20px;
   }
 
@@ -42,6 +43,10 @@ body {
 .cart_stocks {
   display: inline-flex;
   gap: var(--unit-x2);
-  margin-block-start: var(--unit-x2);
 }
 
+.cart_action {
+  display: flex;
+  gap: var(--unit-x2);
+  align-items: center;
+}

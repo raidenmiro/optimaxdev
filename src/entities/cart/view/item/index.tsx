@@ -42,9 +42,10 @@ export function CartItem({ id, cart }: CartItemProps) {
 
   return (
     <View className={s.container}>
-      <Checkbox />
+      <Checkbox checked={true} />
       <View className={s.sample}>
         <CartSample
+          id={cart.id}
           image={item.image}
           promotions={item.promotions}
           name={item.name}

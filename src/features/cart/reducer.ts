@@ -37,7 +37,8 @@ export const CartSlice = createSlice({
       cartAdapter.setOne(state, nextItem)
     },
     deleteOne: (state, action: PayloadAction<DeleteOneParams>) => {
-      cartAdapter.removeOne(state, action.payload.cartItemId)
+      const itemId = action.payload.cartItemId
+      cartAdapter.removeOne(state, itemId)
     },
     changeQuantity: (state, action: PayloadAction<ChangeQuantityParams>) => {
       const nextQuantity = action.payload.quantity

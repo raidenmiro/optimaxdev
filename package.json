@@ -14,6 +14,7 @@
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
+    "storybook:publish": "pnpm storybook:build && touch ./storybook-static/.nojekyll && gh-pages -d ./storybook-static -t true",
     "build": "tsc && vite build",
     "commit": "cz",
     "lint": "tsc --noEmit && eslint ./src && stylelint ./src/**/*.css",

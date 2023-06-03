@@ -44,4 +44,4 @@ pnpm dev
 
 - [Feathericons](https://feathericons.com/)
 
-- [Martian Mono](https://github.com/evilmartians/mono)
+- [Martian Mono](https://github.com/evilmartians/mono/)

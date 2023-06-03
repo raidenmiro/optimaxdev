@@ -38,6 +38,8 @@ export function CartItem({ id, cart }: CartItemProps) {
     return null
   }
 
+  const totalFormatted = `${total}${CURRENCY_SYMBOL}`
+
   return (
     <View className={s.container}>
       <Checkbox />
@@ -49,7 +51,7 @@ export function CartItem({ id, cart }: CartItemProps) {
         />
       </View>
       <View className={s.footer}>
-        <View>{total}</View>
+        <View>{totalFormatted}</View>
         <Quantity
           className={s.quantity}
           quantity={cart.quantity}

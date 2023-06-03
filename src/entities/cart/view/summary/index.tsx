@@ -10,11 +10,13 @@ interface SummaryProps {
 }
 
 export function CartSummary({ total, quantity }: SummaryProps) {
+  const totalFormatted = `${total}${CURRENCY_SYMBOL}`
+
   return (
     <View className={s.card}>
       <View className={cc([s.card_row, s.card_header, s.card_divider])}>
         <View>Total</View>
-        <View>{total}</View>
+        <View>{totalFormatted}</View>
       </View>
       <View>
         <View className={s.card_row}>

@@ -27,7 +27,9 @@ export function CartCard({ product, onPay }: CardProps) {
         </AspectRatio.Root>
       </View>
       <View className={s.content}>
-        <View className={s.title}>{product.price}$</View>
+        <View className={s.title}>
+          {String(product.price).concat(CURRENCY_SYMBOL)}
+        </View>
         <View className={s.description}>{product.description}</View>
       </View>
       <Button

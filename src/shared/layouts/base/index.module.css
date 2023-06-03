@@ -1,41 +1,35 @@
-body {
-  --container-width: 1200px;
-}
-
 .layout {
   position: relative;
   display: grid;
-  gap: var(--unit-x7);
-  padding-inline: var(--unit-x10);
-  max-inline-size: var(--container-width);  
-  margin: var(--unit-x10) auto;
+  block-size: fit-content;
+  gap: var(--unit-x10);
+  max-inline-size: 1230px;
+  padding-inline: 30px;
+  margin: 30px auto 0;
 
-  @media (width < 930px) {
-    --container-width: 930px;
-
-    grid-template:
-      "cart cart"  
-      "summary summary"
-      "goods goods";
-    padding-inline: 10px;
-  }
-
-  @media (width >= 950px) {
-    grid-template:
-      "cart summary"  
+  @media (width >= 930px) {
+    grid-template-areas: 
       "cart summary"
       "goods goods";
+  }
+
+  @media (width <= 930px) {
+    display: flex;
+    flex-direction: column;
+    max-inline-size: 100%;
   }
 }
 
 .cart {
   grid-area: cart;
-  inline-size: 700px;
 }
 
 .summary {
   grid-area: summary;
-  inline-size: 400px;
+
+  @media (width >= 930px) {
+    justify-self: self-end;
+  }
 }
 
 .goods {

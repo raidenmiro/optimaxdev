@@ -1,4 +1,17 @@
+body {
+  --summary-width: 420px;
+
+  @media (width < 930px) {
+    --summary-width: 100%;
+  }
+}
+
 .total {
   display: grid;
   gap: var(--unit-x5);
+  inline-size: var(--summary-width);
+
+  @media (width < 930px) {
+    margin-inline: auto;
+  }
 }

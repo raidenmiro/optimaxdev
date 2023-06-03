@@ -1,6 +1,5 @@
 .field {
   position: relative;
-  box-sizing: border-box;
   block-size: var(--unit-x7);
   inline-size: fit-content;
   display: flex;
@@ -23,7 +22,6 @@
 }
 
 .input {
-  box-sizing: border-box;
   padding: 0 var(--unit-x1);
   line-height: var(--unit-x3);
   inline-size: 90%;

@@ -1,7 +1,16 @@
+body {
+  --cart-width: 680px;
+
+  @media (width < 930px) {
+    --cart-width: 100%;
+  }
+}
+
 .sample {
   display: grid;
   gap: var(--unit-x5);
   margin-block-start: var(--unit-x5);
+  inline-size: var(--cart-width);
 
   & > *:not(:last-child) {
     padding-block: var(--unit-x4);

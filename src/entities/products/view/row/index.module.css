@@ -4,7 +4,6 @@ body {
 
 .container {
   position: relative;
-  max-inline-size: var(--container-width);
 
   @media (hover: hover) {
     &:hover {

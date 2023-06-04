@@ -24,6 +24,8 @@
 .input {
   padding: 0 var(--unit-x1);
   line-height: var(--unit-x3);
+  color: var(--text-primary);
+  background: transparent;
   inline-size: 90%;
   block-size: 100%;
   border: none;

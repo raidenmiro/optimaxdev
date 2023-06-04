@@ -15,6 +15,7 @@ kbd,
 button {
   font-family: "Martian Mono", monospace;
   font-size: 15px;
+  background: var(--bg-base-accent);
 }
 
 .sr-only {

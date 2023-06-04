@@ -1,6 +1,6 @@
 body {
   --card-width: 220px;
-  --card-height: 385px;
+  --card-height: 395px;
 }
 
 .card {
@@ -36,7 +36,8 @@ body {
 .title {
   font-size: 15px;
   line-height: 2.2;
-  white-space: nowrap
+  color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .description {

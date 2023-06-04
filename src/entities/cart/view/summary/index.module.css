@@ -1,6 +1,7 @@
 .card {
   box-sizing: border-box;
   padding: 24px;
+  color: var(--text-primary);
   background: var(--bg-base-regular);
   border-radius: 20px;
 }
@@ -22,5 +23,5 @@
 
 .card_divider {
   padding-block: var(--unit-x5);
-  border-block-end: 1px solid oklch(90% 0 0);
+  border-block-end: 1px solid var(--surface-divider);
 }

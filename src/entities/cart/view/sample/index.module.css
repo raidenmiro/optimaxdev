@@ -31,6 +31,7 @@ body {
     margin-block-end: var(--unit-x1);
     margin-block-end: 10px;
     font-size: 20px;
+    color: var(--text-primary);
   }
 
   & > :where(span) {

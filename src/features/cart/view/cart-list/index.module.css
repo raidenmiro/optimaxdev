@@ -6,6 +6,10 @@ body {
   }
 }
 
+.paper {
+  color: var(--text-primary);
+}
+
 .sample {
   display: grid;
   gap: var(--unit-x5);
@@ -14,6 +18,6 @@ body {
 
   & > *:not(:last-child) {
     padding-block: var(--unit-x4);
-    border-block-end: 1px solid oklch(90% 0 0);
+    border-block-end: 1px solid var(--surface-divider);
   }
 }

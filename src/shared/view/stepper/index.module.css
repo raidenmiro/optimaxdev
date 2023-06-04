@@ -13,6 +13,7 @@
 
   block-size: var(--unit-x7);
   padding-inline: var(--unit-x2);
+  color: var(--text-primary);
   background: transparent;
   border: none;
   outline-color: var(--accent);

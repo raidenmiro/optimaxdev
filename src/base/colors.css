@@ -11,6 +11,7 @@
   --surface-border: oklch(81.18% 0.026 271.08);
   --surface-shadow: oklch(0% 0 0 / 5.1%);
   --surface-hover: oklch(62.95% 0.152 261.57 / 15%);
+  --surface-divider: oklch(90% 0 0);
   --magenta: oklch(55.06% 0.280 322.94);
   --magenta-faded: oklch(70.94% 0.27 330.04 / 10%);
 }
@@ -19,10 +20,15 @@
   :root {
     --accent: oklch(63.78% 0.131 255.51);
     --bg-base-accent: oklch(9.69% 0 0);
-    --surface-border: oklch(26.86% 0 0);
-    --surface-hover: oklch(26.86% 0 0 / 10%);
+    --bg-base-regular: oklch(93% 0 0 / 10%);
+    --surface-border: oklch(38.86% 0 0);
+    --surface-hover: oklch(30.86% 0 0);
+    --surface-shadow: oklch(100% 0 0 / 5.1%);
+    --surface-divider: oklch(3815.83% 0 0 / 30%);
     --text-primary: oklch(95.89% 0.019 145.43);
     --text-secondary: oklch(68.3% 0 0);
+    --magenta: oklch(69.94% 2.285 322.94);
+    --magenta-faded: oklch(73.94% 0.27 330.04 / 30%);
   }
 }
 

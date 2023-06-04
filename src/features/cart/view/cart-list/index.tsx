@@ -16,7 +16,7 @@ export function CartList() {
   }, [dispatch])
 
   return (
-    <View>
+    <View className={s.paper}>
       <View as="h1">Cart of goods</View>
       <Content />
     </View>

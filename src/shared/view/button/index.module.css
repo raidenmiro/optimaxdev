@@ -29,5 +29,9 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 50%;
+
+    &:hover {
+      --shadow-blur: 0;
+    }
   }
 }

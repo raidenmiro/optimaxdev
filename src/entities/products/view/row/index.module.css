@@ -18,10 +18,13 @@ body {
 
 .control {
   position: absolute;
+  z-index: 5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  color: var(--text-secondary);
+  background: var(--bg-base-accent);
+  border: 1px solid var(--surface-border);
   border-radius: 9999px;
   opacity: var(--controls-opacity);
   transition: opacity 0.2s ease-in-out;
@@ -45,12 +48,16 @@ body {
     inset-inline-end: 20px;
 
     & svg {
-      margin-inline-start: 8px;
+      margin-inline-start: 9px;
     }
   }
 
   &.is_decrease {
     inset-inline-start: -22px;
+
+    & svg {
+      margin-inline-start: -9px;
+    }
   }
 }
 

@@ -28,7 +28,7 @@
     --text-primary: oklch(95.89% 0.019 145.43);
     --text-secondary: oklch(68.3% 0 0);
     --magenta: oklch(69.94% 2.285 322.94);
-    --magenta-faded: oklch(73.94% 0.27 330.04 / 30%);
+    --magenta-faded: oklch(72.65% 0.257 330.04 / 30%);
   }
 }
 

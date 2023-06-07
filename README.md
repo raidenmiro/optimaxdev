@@ -59,8 +59,8 @@ docker compose up -d
 ```bash
 $ docker ps
 
-CONTAINER ID   IMAGE                          COMMAND                   CREATED              STATUS              PORTS                               NAMES
-7e34d10fef75   optimaxdev                     "nginx -g 'daemon of…"    About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, :::80->80/tcp   test-task
+CONTAINER ID   IMAGE           COMMAND                   CREATED              STATUS              PORTS                               NAMES
+7e34d10fef75   optimaxdev      "nginx -g 'daemon of…"    About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, :::80->80/tcp   test-task
 ```
 
 - Stop and remove containers

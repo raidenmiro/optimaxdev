@@ -1,7 +1,10 @@
 # Test task for `optimax-dev`
 
 <div style="width: 300px; height: 55px; margin-bottom: 1rem;">
-  <img style=" object-fit: cover; inline-size: 100%; block-size: 100%" src="./public/logo.svg" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./public/logo.dark.svg">
+    <img style="object-fit: cover; inline-size: 100%; block-size: 100%" src="./public/logo.svg" alt="logo" />
+  </picture>
 </div>
 
 ## Requirements

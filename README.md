@@ -54,7 +54,7 @@ pnpm dev
 The docker must be installed
 
 ```sh
-docker compose up -d
+docker-compose up -d
 ```
 
 - Check the result list containers

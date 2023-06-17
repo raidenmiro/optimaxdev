@@ -3,9 +3,9 @@ FROM node:20.2.0 AS development
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yml ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN pnpm install --frozen-lock-file
+RUN npm install -g npm && pnpm install --frozen-lock-file
 
 COPY . .
 
